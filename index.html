@@ -13,7 +13,7 @@
     </head>
     <body>
       <h1>Tic Tac Toe</h1>
-    <section>
+    <section id="sign-up-section">
       <h2>Sign Up</h2>
       <form id="signUp">
         <input name="credentials[email]" type="text">
@@ -22,7 +22,7 @@
         <button type="submit">Sign Up</button>
       </form>
     </section>
-    <section>
+    <section id="sign-in-section">
       <h2>Sign In</h2>
       <form id="signIn">
         <input name="credentials[email]" type="text">
@@ -30,9 +30,26 @@
         <button type="submit">Sign In</button>
       </form>
     </section>
-    <section>
+    <section id="sign-out-section">
       <button type="submit" id="signOut">Sign Out</button>
     </section>
     <p id='message'></p>
+    <div class="container">
+      <h1>Game Board</h1>
+      <div class="row">
+        <button class="col-4">1</button>
+        <button class="col-4">2</button>
+        <button class="col-4">3</button>
+        <button class="col-4">4</button>
+        <button class="col-4">5</button>
+        <button class="col-4">6</button>
+        <button class="col-4">7</button>
+        <button class="col-4">8</button>
+        <button class="col-4">9</button>
+      </div>
+      <div class="row">
+        <button class="col-12">Start Game</button>
+      </div>
+    </div>
     </body>
 </html>
