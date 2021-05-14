@@ -37,7 +37,6 @@ const gameMoveSuccess = function (res) {
   console.log(store.game, ' is in my gameMoveSuccess')
   $('#message').html('Play!')
   // checking all of the winning conditions
-  const xLogic = function () {
   if (
     store.game.cells[0] === 'X' &&
     store.game.cells[1] === 'X' &&
@@ -75,9 +74,19 @@ const gameMoveSuccess = function (res) {
     store.game.cells[8] === 'X') {
     $('#message').html('Winner')
     $('#gameBoard').hide()
-  }
-}
-     if (
+  } else if (
+    store.game.cells[0] === 'X' &&
+    store.game.cells[4] === 'X' &&
+    store.game.cells[8] === 'X') {
+    $('#message').html('Winner')
+    $('#gameBoard').hide()
+  } else if (
+    store.game.cells[2] === 'X' &&
+    store.game.cells[4] === 'X' &&
+    store.game.cells[6] === 'X') {
+    $('#message').html('Winner')
+    $('#gameBoard').hide()
+  } else if (
     store.game.cells[0] === 'O' &&
     store.game.cells[1] === 'O' &&
     store.game.cells[2] === 'O') {
@@ -112,6 +121,18 @@ const gameMoveSuccess = function (res) {
     store.game.cells[6] === 'O' &&
     store.game.cells[7] === 'O' &&
     store.game.cells[8] === 'O') {
+    $('#message').html('Winner')
+    $('#gameBoard').hide()
+  } else if (
+    store.game.cells[0] === '0' &&
+    store.game.cells[4] === '0' &&
+    store.game.cells[8] === '0') {
+    $('#message').html('Winner')
+    $('#gameBoard').hide()
+  } else if (
+    store.game.cells[2] === '0' &&
+    store.game.cells[4] === '0' &&
+    store.game.cells[6] === '0') {
     $('#message').html('Winner')
     $('#gameBoard').hide()
   }
