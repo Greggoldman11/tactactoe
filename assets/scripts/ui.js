@@ -43,7 +43,6 @@ const gameMoveSuccess = function (res) {
     store.game.cells[2] === 'X') {
     $('#message').html('Winner')
     $('#gameBoard').hide()
-    store.game.over = true
   } else if (
     store.game.cells[0] === 'X' &&
     store.game.cells[3] === 'X' &&
@@ -92,7 +91,6 @@ const gameMoveSuccess = function (res) {
     store.game.cells[2] === 'O') {
     $('#message').html('Winner')
     $('#gameBoard').hide()
-    store.game.over = true
   } else if (
     store.game.cells[0] === 'O' &&
     store.game.cells[3] === 'O' &&
