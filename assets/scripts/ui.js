@@ -8,7 +8,7 @@ const signInSuccess = function (res) {
   $('form').trigger('reset')
   // upon successful sign in I want to store that users token
   store.user = res.user
-  // console.log(store.user)
+  console.log(store.user)
   // console.log('this is the user in signInSuccess', store.user.token)
   $('#message').html('BOOM')
 }
@@ -21,7 +21,9 @@ const signOutSuccess = function (res) {
 const signOutFailure = function () {
   $('#message').html('Sign out failed')
 }
-const startGameSuccess = function () {
+const startGameSuccess = function (res) {
+  store.game = res.game
+  console.log(store.game._id)
   $('#message').html('Player 1\'s move')
 }
 const startGameFailure = function () {

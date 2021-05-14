@@ -37,13 +37,24 @@ const startGame = function () {
   })
 }
 // write a function that updates the value of the cell based on its data-index-number
-const gameMove = function (value) {
-  console.log('Player clicked on cell', value.cellIndex)
+const updateGame = function (data, game, currentPlayer) {
+  console.log('Player clicked on cell', data.cellIndex)
+  console.log(store.game)
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/games/', // owner id for the game stored on new game response
+    url: config.apiUrl + '/games/' + store.game._id,
     headers: {
       Authorization: `Bearer ${store.user.token}`
+    },
+    // Pass the data as an object
+    data: {
+      game: {
+        cell: {
+          index: data.cellIndex,
+          value: currentPlayer
+        },
+        over: false
+      }
     }
   })
 }
@@ -53,5 +64,5 @@ module.exports = {
   signIn,
   signOut,
   startGame,
-  gameMove
+  updateGame
 }
