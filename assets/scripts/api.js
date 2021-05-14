@@ -39,7 +39,7 @@ const startGame = function () {
 // write a function that updates the value of the cell based on its data-index-number
 const updateGame = function (data, game, currentPlayer) {
   console.log('Player clicked on cell', data.cellIndex)
-  console.log(store.game)
+
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/games/' + store.game._id,

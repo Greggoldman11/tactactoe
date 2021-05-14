@@ -25,9 +25,35 @@ const startGameSuccess = function (res) {
   store.game = res.game
   console.log(store.game._id)
   $('#message').html('Player 1\'s move')
+  $('#gameBoard').trigger('reset')
+  $('#gameBoard').show()
 }
 const startGameFailure = function () {
   $('#message').html('Please sign in and try again')
+}
+
+const gameMoveSuccess = function (res) {
+  store.game = res.game
+  console.log(store.game, ' is in my gameMoveSuccess')
+  $('#message').html('Play!')
+  // checking all of the winning conditions
+  if (
+    store.game.cells[0] === 'X' &&
+    store.game.cells[1] === 'X' &&
+    store.game.cells[2] === 'X') {
+    $('#message').html('Winner')
+    $('#gameBoard').hide()
+    store.game.cells = ''
+  } else if (
+    store.game.cells[0] === 'X' &&
+    store.game.cells[3] === 'X' &&
+    store.game.cells[6] === 'X') {
+    $('#message').html('Winner')
+    $('#gameBoard').hide()
+  }
+}
+const gameMoveFailure = function () {
+  $('#message').html('Oops!')
 }
 module.exports = {
   signUpSuccess,
@@ -36,5 +62,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   startGameSuccess,
-  startGameFailure
+  startGameFailure,
+  gameMoveSuccess,
+  gameMoveFailure
 }
