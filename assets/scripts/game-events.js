@@ -30,6 +30,7 @@ const onGameMove = function (event) {
   currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
   if (currentPlayer === 'X' || currentPlayer === 'O') {
     console.log('invalid move')
+    $('#game')
   }
 }
 module.exports = {
