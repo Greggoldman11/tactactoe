@@ -3,6 +3,7 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('./store.js')
 // a seperate events file to keep events separate by type
+let currentPlayer = ' '
 const onStartGame = function () {
   console.log('this is in onStartGame')
   // set currentPlayer to X every time this event occurs
@@ -12,7 +13,7 @@ const onStartGame = function () {
     .catch(ui.startGameFailure)
 }
 // a variable that starts at X and switches between X and O
-let currentPlayer = 'X'
+// currentPlayer = 'X'
 const onGameMove = function (event) {
   // console.log('this is event.target text ', $(event.target).text())
   // console.log('this is in onGameMove', $(event.target).data())
@@ -23,14 +24,17 @@ const onGameMove = function (event) {
   // if my currentPlayer variable is equal to x change it o
   // if it is equal to 0 change it to x
   // console.log('this is my game variable', game)
-  console.log('This is my data variable', data)
-  api.updateGame(data, game, currentPlayer)
-    .then(ui.gameMoveSuccess)
-    .catch(ui.gameMoveFailure)
-  currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
-  if (currentPlayer === 'X' || currentPlayer === 'O') {
-    console.log('invalid move')
-    $('#game')
+  // console.log('This is my data variable', data)
+  // currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
+
+  if ($(event.target).text() === ' ') {
+    $(event.target).text(currentPlayer)
+    api.updateGame(data, game, currentPlayer)
+      .then(ui.gameMoveSuccess)
+      .catch(ui.gameMoveFailure)
+    currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
+  } else if ($(event.target).text() !== ' ') {
+    $('#message').text('nope')
   }
 }
 module.exports = {
