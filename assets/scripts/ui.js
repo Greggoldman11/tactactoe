@@ -149,6 +149,8 @@ const gameMoveSuccess = function (res) {
     store.game.cells[6] === 'O') {
     $('#message').html('Winner')
     $('.spot').hide()
+  }else {
+    $('#message').html('No winner')
   }
 }
 const gameMoveFailure = function () {

@@ -1,13 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
-
+#gameBoard {
+margin-top: 5px;
+}
 .spot {
   height: 50px;
-  background-color: pink;
+  background-color: yellow;
+  border: 1px solid black;
 }
 body{
   text-align: center;
-  background-color: blue;
-}
-button {
-  border-radius: 1;
+  background-color: lightBlue;
+  font: yellow;
 }

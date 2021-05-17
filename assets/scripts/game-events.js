@@ -22,7 +22,7 @@ const onGameMove = function (event) {
   const game = $(event.target).data(store.user_id)
   console.log(currentPlayer, 'clicked cell', data.cellIndex)
   // if my currentPlayer variable is equal to x change it o
-  // if it is equal to 0 change it to x
+  // if it is equal to o change it to x
   // console.log('this is my game variable', game)
   // console.log('This is my data variable', data)
   // currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
