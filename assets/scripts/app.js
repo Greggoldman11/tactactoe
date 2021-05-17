@@ -13,4 +13,10 @@ $(() => {
   $('#signOut').on('click', authEvents.onSignOut)
   $('#startGame').on('click', gameEvents.onStartGame)
   $('#gameBoard').on('click', gameEvents.onGameMove)
+  $(document).ready(function () {
+    $('#gameBoard').hide()
+  })
+  $('#startGame').on('click', function () {
+    $('gameBoard').removeClass('hidden')
+  })
 })
