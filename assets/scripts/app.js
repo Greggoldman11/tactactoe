@@ -16,7 +16,21 @@ $(() => {
   $(document).ready(function () {
     $('#gameBoard').hide()
   })
-  $('#startGame').on('click', function () {
-    $('gameBoard').removeClass('hidden')
+  $(document).ready(function () {
+    $('#sign-in-section').hide()
+  })
+  $(document).ready(function () {
+    $('#signOutButton').hide()
+  })
+  // $('#signInButton').on('click', function () {
+  //   $('#gameBoard').show()
+  //   $('#signOutButton').show()
+  // })
+  // $('#signInButton').on('click', function () {
+  //   $('#signOutButton').show()
+  // })
+  $('#signOutButton').on('click', function () {
+    $('#sign-in-section').show()
+    $('#gameBoard').hide()
   })
 })

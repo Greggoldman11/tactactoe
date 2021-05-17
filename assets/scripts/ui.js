@@ -3,6 +3,13 @@ const store = require('./store.js')
 const signUpSuccess = function (res) {
   $('form').trigger('reset')
   $('#message').html('WOO')
+  // happening only after its clicked again
+  $('#signUpButton').on('click', function () {
+    $('#sign-in-section').show()
+  })
+}
+const signUpFailure = function () {
+  $('#message').html('Sign up was not completed successfully')
 }
 const signInSuccess = function (res) {
   $('form').trigger('reset')
@@ -11,6 +18,14 @@ const signInSuccess = function (res) {
   console.log(store.user)
   // console.log('this is the user in signInSuccess', store.user.token)
   $('#message').html('BOOM')
+  // $('#signInButton').on('click', function () {
+  //   $('#sign-in-section').hide()
+  // })
+  $('#signInButton').on('click', function () {
+    $('#gameBoard').show()
+    $('#signOutButton').show()
+    $('#sign-in-section').hide()
+  })
 }
 const signInFailure = function () {
   $('#message').html('User is unauthorized')
@@ -18,8 +33,8 @@ const signInFailure = function () {
 const signOutSuccess = function (res) {
   $('#message').html('You have signed out')
 }
-const signOutFailure = function () {
-  $('#message').html('Sign out failed')
+const signOutFailure = function (err) {
+  $('#message').html('Sign out failed' + err)
 }
 const startGameSuccess = function (res) {
   store.game = res.game
@@ -140,6 +155,7 @@ const gameMoveFailure = function () {
 }
 module.exports = {
   signUpSuccess,
+  signUpFailure,
   signInSuccess,
   signInFailure,
   signOutSuccess,

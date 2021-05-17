@@ -9,7 +9,7 @@ const onSignUp = function (event) {
   console.log(signUpData)
   api.signUp(signUpData)
     .then(ui.signUpSuccess)
-    .catch(console.error)
+    .catch(ui.signUpFailure)
 }
 const onSignIn = function (event) {
   event.preventDefault()
