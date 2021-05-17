@@ -22,15 +22,23 @@ $(() => {
   $(document).ready(function () {
     $('#signOutButton').hide()
   })
-  // $('#signInButton').on('click', function () {
-  //   $('#gameBoard').show()
-  //   $('#signOutButton').show()
-  // })
+  $('#signInButton').on('click', function () {
+    $('#gameBoard').show()
+    $('#signOutButton').show()
+  })
   // $('#signInButton').on('click', function () {
   //   $('#signOutButton').show()
   // })
   $('#signOutButton').on('click', function () {
     $('#sign-in-section').show()
-    $('#gameBoard').hide()
+    $('.spot').hide()
+    $('#signOutButton').hide()
+  })
+  $('#signUpButton').on('click', function () {
+    $('#sign-in-section').show()
+  })
+  $('#altSignIn').on('click', function () {
+    $('#sign-in-section').show()
+    $('#sign-up-section').hide()
   })
 })
