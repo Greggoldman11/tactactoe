@@ -17,9 +17,9 @@
     <section id="sign-up-section">
       <h2>Sign Up</h2>
       <form id="signUp">
-        <input name="credentials[email]" type="text" placeholder="name1">
-        <input name="credentials[password]" type="password">
-        <input name="credentials[password_confirmation]" type="password">
+        <input name="credentials[email]" type="text" placeholder="email">
+        <input name="credentials[password]" type="password" placeholder="password">
+        <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
         <button type="submit" id='signUpButton' class="btn btn-dark">Sign Up</button>
       </form>
       <button type="submit" id="altSignIn">already have an account?</button>
@@ -27,10 +27,12 @@
     <section id="sign-in-section">
       <h2>Sign In</h2>
       <form id="signIn">
-        <input name="credentials[email]" type="text">
-        <input name="credentials[password]" type="password">
+        <input name="credentials[email]" type="text" placeholder="email">
+        <input name="credentials[password]" type="password" placeholder="password">
         <button type="submit" id='signInButton'>Sign In</button>
+        <!-- create a new account button that shows in sign in section-->
       </form>
+      <button type='submit' id='createNewAccount'>Create a New Account</button>
     </section>
     <section id="sign-out-section">
       <button type="submit" id="signOutButton">Sign Out</button>

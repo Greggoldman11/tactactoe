@@ -29,5 +29,11 @@ $(() => {
   $('#altSignIn').on('click', function () {
     $('#sign-in-section').show()
     $('#sign-up-section').hide()
+    $('#createNewAccount').show()
+  })
+  $('#createNewAccount').on('click', function () {
+    $('#sign-in-section').hide()
+    $('#sign-up-section').show()
+    $('#createNewAccount').hide()
   })
 })

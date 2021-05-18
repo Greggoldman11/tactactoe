@@ -18,7 +18,6 @@ const onSignIn = function (event) {
   api.signIn(signInData)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
-
 }
 const onSignOut = function (event) {
   console.log('in onSignOut')
