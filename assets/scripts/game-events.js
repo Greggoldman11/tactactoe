@@ -1,11 +1,12 @@
-// const getFormfields = require('./../../lib/get-form-fields.js')
+// a seperate events file to keep events separate by type
+
 const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('./store.js')
-// a seperate events file to keep events separate by type
+
 let currentPlayer = ' '
+// a function for when a player clicks start game
 const onStartGame = function () {
-  console.log('this is in onStartGame')
   // set currentPlayer to X every time this event occurs
   currentPlayer = 'X'
   api.startGame()
@@ -13,27 +14,25 @@ const onStartGame = function () {
     .catch(ui.startGameFailure)
 }
 // a variable that starts at X and switches between X and O
-// currentPlayer = 'X'
 const onGameMove = function (event) {
-  // console.log('this is event.target text ', $(event.target).text())
-  // console.log('this is in onGameMove', $(event.target).data())
   // store the response from the event.target for my API call
   const data = $(event.target).data(store.index)
   const game = $(event.target).data(store.user_id)
-  console.log(currentPlayer, 'clicked cell', data.cellIndex)
-  // if my currentPlayer variable is equal to x change it o
-  // if it is equal to o change it to x
-  // console.log('this is my game variable', game)
-  // console.log('This is my data variable', data)
-  // currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
-
+  // check if the space is occupied or empty
   if ($(event.target).text() === ' ') {
     $(event.target).text(currentPlayer)
+    $('#message').html('Play!')
     api.updateGame(data, game, currentPlayer)
       .then(ui.gameMoveSuccess)
       .catch(ui.gameMoveFailure)
+    // if my currentPlayer variable is equal to X change it O
+    // if it is equal to O change it to X
     currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
-  } else if ($(event.target).text() !== ' ') {
+  // If event.target is the start game button it does not have ' ' as text
+  } else if ($(event.target).text() === 'Start New Game') {
+    $('#message').html('Play!')
+  // everything else possible is an X or an O
+  } else {
     $('#message').text('This spot is taken')
   }
 }

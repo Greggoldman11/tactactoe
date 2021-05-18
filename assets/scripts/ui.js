@@ -14,7 +14,6 @@ const signInSuccess = function (res) {
   $('form').trigger('reset')
   // upon successful sign in I want to store that users token
   store.user = res.user
-  console.log(store.user)
   // console.log('this is the user in signInSuccess', store.user.token)
   $('#message').html('You\'re In! Click Start New Game to begin playing')
   $('#gameBoard').show()
@@ -24,7 +23,6 @@ const signInSuccess = function (res) {
 }
 const signInFailure = function () {
   $('#message').html('User is unauthorized')
-  // allow the user to create an account on signInFailure
 }
 
 const signOutSuccess = function () {
@@ -40,7 +38,7 @@ const signOutFailure = function () {
 }
 const startGameSuccess = function (res) {
   store.game = res.game
-  console.log(store.game)
+  // show the board and set the text back to ' '
   $('#message').html('Play!')
   $('#gameBoard').show()
   $('.spot').show()
@@ -49,18 +47,20 @@ const startGameSuccess = function (res) {
 }
 const startGameFailure = function () {
   $('#message').html('Please sign in and try again')
+  // bring the user automatically back to the sign in page
+  $('#sign-in-section').show()
+  $('#gameBoard').hide()
+  $('#signOutButton').hide()
+  $('body').css('margin-top', '10%')
 }
 
 const gameMoveSuccess = function (res) {
   store.game = res.game
   // create a variable that iterates through store.game.cells
-  // the function checks if every cell is occupied
+  // the function checks if every cell is occupied by an empty string
+  // if the cells include an empty string checkTie is true which isn't a Tie
+  // false is a tie
   const checkTie = store.game.cells.includes('')
-
-  // if every cell is either an X or an O, but there is no Winner
-  // message for a tie game
-  // { console.log(store.game, ' is in my gameMoveSuccess')}
-  $('#message').html('Play!')
   // checking all of the winning conditions
   if (
     store.game.cells[0] === 'X' &&
@@ -174,6 +174,7 @@ const gameMoveSuccess = function (res) {
     $('#message').html('Winner')
     $('.spot').hide()
     $('#topRow').hide()
+    // message for a tie game
   } else if (checkTie === false) {
     $('#message').html('Tie Game! Play again')
     $('.spot').hide()
