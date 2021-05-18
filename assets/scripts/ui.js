@@ -8,6 +8,7 @@ const signUpSuccess = function (res) {
 }
 const signUpFailure = function () {
   $('#message').html('Sign up was not completed successfully')
+  $('form').trigger('reset')
 }
 const signInSuccess = function (res) {
   $('form').trigger('reset')
