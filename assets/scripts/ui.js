@@ -19,6 +19,7 @@ const signInSuccess = function (res) {
   $('#gameBoard').show()
   $('#signOutButton').show()
   $('#sign-in-section').hide()
+  $('body').css('margin-top', 0)
 }
 const signInFailure = function () {
   $('#message').html('User is unauthorized')
@@ -31,6 +32,7 @@ const signOutSuccess = function () {
   $('#sign-in-section').show()
   $('#gameBoard').hide()
   $('#signOutButton').hide()
+  $('body').css('margin-top', '10%')
 }
 const signOutFailure = function () {
   $('#message').html('Sign out failed')

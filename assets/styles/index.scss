@@ -5,12 +5,13 @@
   background-color: transparent;
   border: 2px solid black;
   font-size: 130px;
-  color: yellow;
+  color: red;
 }
 body{
   text-align: center;
   background-color: black;
-  color: yellow;
+  color: red;
+  margin-top: 10%;
 }
 .container {
   background: url('public/Darth.jpeg') no-repeat center center;
@@ -20,4 +21,22 @@ body{
 margin-top: 5px;
 background-color: purple;
 color: black;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  width: 40%;
+  padding: 10px;
+  margin: 10px;
+  border: 10px groove red;
+  text-align: center;
+  font-size: 30px;
+}
+h1 {
+font-size: 100px;
 }
