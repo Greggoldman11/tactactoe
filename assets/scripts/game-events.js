@@ -34,7 +34,7 @@ const onGameMove = function (event) {
       .catch(ui.gameMoveFailure)
     currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
   } else if ($(event.target).text() !== ' ') {
-    $('#message').text('nope')
+    $('#message').text('This spot is taken')
   }
 }
 module.exports = {

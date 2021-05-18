@@ -24,8 +24,9 @@ const signInFailure = function () {
   $('#message').html('User is unauthorized')
   // allow the user to create an account on signInFailure
 }
+
 const signOutSuccess = function () {
-  $('#message').html('You have signed out')
+  $('#message').html('Sign in to play!')
   $('#signOutButton').hide()
   $('#sign-in-section').show()
   $('#gameBoard').hide()
