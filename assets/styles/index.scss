@@ -1,16 +1,22 @@
 @import '~bootstrap/scss/bootstrap';
-#gameBoard {
-margin-top: 5px;
-background-color: black;
-}
+
 .spot {
-  height: 100px;
-  background-color: purple;
-  border: 1px solid black;
-  font-size: 60px;
+  height: 200px;
+  background-color: transparent;
+  border: 2px solid black;
+  font-size: 130px;
 }
 body{
   text-align: center;
   background-color: black;
   color: yellow;
+}
+.container {
+  background: url('public/Darth.jpeg') no-repeat center center;
+  background-size: cover;
+}
+#gameBoard {
+margin-top: 5px;
+background-color: grey;
+color: black;
 }

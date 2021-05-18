@@ -15,9 +15,9 @@ $(() => {
   $('#startGame').on('click', gameEvents.onStartGame)
   $('#gameBoard').on('click', gameEvents.onGameMove)
   // load the page with everything but sign up hidden
-  $(document).ready(function () {
-    $('#gameBoard').hide()
-  })
+  // $(document).ready(function () {
+  //   $('#gameBoard').hide()
+  // })
   $(document).ready(function () {
     $('#sign-in-section').hide()
   })
