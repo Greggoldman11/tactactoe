@@ -17,6 +17,7 @@ const signInSuccess = function (res) {
   // console.log('this is the user in signInSuccess', store.user.token)
   $('#message').html('You\'re In! Click Start New Game to begin playing')
   $('#gameBoard').show()
+  $('.spot').text(' ')
   $('#signOutButton').show()
   $('#sign-in-section').hide()
   $('body').css('margin-top', 0)
