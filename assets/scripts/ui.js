@@ -2,10 +2,9 @@ const store = require('./store.js')
 
 const signUpSuccess = function (res) {
   $('form').trigger('reset')
-  $('#message').html('WOO')
-  // happening only after its clicked again
-    $('#sign-in-section').show()
-    $('#sign-up-section').hide()
+  $('#message').html('You have successfully signed up')
+  $('#sign-in-section').show()
+  $('#sign-up-section').hide()
 }
 const signUpFailure = function () {
   $('#message').html('Sign up was not completed successfully')
@@ -16,15 +15,10 @@ const signInSuccess = function (res) {
   store.user = res.user
   console.log(store.user)
   // console.log('this is the user in signInSuccess', store.user.token)
-  $('#message').html('BOOM')
-  // $('#signInButton').on('click', function () {
-  //   $('#sign-in-section').hide()
-  // })
-  // $('#signInButton').on('click', function () {
-    $('#gameBoard').show()
-    $('#signOutButton').show()
-    $('#sign-in-section').hide()
-  // })
+  $('#message').html('You\'re In! Click Start New Game to begin playing')
+  $('#gameBoard').show()
+  $('#signOutButton').show()
+  $('#sign-in-section').hide()
 }
 const signInFailure = function () {
   $('#message').html('User is unauthorized')
@@ -32,14 +26,17 @@ const signInFailure = function () {
 const signOutSuccess = function () {
   $('#message').html('You have signed out')
   $('#signOutButton').hide()
+  $('#sign-in-section').show()
+  $('#gameBoard').hide()
+  $('#signOutButton').hide()
 }
-const signOutFailure = function (err) {
-  $('#message').html('Sign out failed' + err)
+const signOutFailure = function () {
+  $('#message').html('Sign out failed')
 }
 const startGameSuccess = function (res) {
   store.game = res.game
   console.log(store.game)
-  $('#message').html('Player 1\'s move')
+  $('#message').html('Play!')
   $('#gameBoard').show()
   $('.spot').show()
   $('.spot').text(' ')
@@ -50,7 +47,13 @@ const startGameFailure = function () {
 
 const gameMoveSuccess = function (res) {
   store.game = res.game
-  console.log(store.game, ' is in my gameMoveSuccess')
+  // create a variable that iterates through store.game.cells
+  // the function checks if every cell is occupied
+  const checkTie = store.game.cells.includes('')
+
+  // if every cell is either an X or an O, but there is no Winner
+  // message for a tie game
+  // { console.log(store.game, ' is in my gameMoveSuccess')}
   $('#message').html('Play!')
   // checking all of the winning conditions
   if (
@@ -149,8 +152,9 @@ const gameMoveSuccess = function (res) {
     store.game.cells[6] === 'O') {
     $('#message').html('Winner')
     $('.spot').hide()
-  }else {
-    $('#message').html('No winner')
+  } else if (checkTie === false) {
+    $('#message').html('Tie Game! Play again')
+    $('.spot').hide()
   }
 }
 const gameMoveFailure = function () {

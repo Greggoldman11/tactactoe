@@ -4,15 +4,17 @@
 // const example = require('./example')
 const authEvents = require('./user-events')
 const gameEvents = require('./game-events')
+const ui = require('./ui')
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
 $(() => {
   $('#signUp').on('submit', authEvents.onSignUp)
   $('#signIn').on('submit', authEvents.onSignIn)
-  $('#signOut').on('click', authEvents.onSignOut)
+  $('#signOut').on('submit', authEvents.onSignOut)
   $('#startGame').on('click', gameEvents.onStartGame)
   $('#gameBoard').on('click', gameEvents.onGameMove)
+  // load the page with everything but sign up hidden
   $(document).ready(function () {
     $('#gameBoard').hide()
   })
@@ -22,21 +24,8 @@ $(() => {
   $(document).ready(function () {
     $('#signOutButton').hide()
   })
-  $('#signInButton').on('click', function () {
-    $('#gameBoard').show()
-    $('#signOutButton').show()
-  })
-  // $('#signInButton').on('click', function () {
-  //   $('#signOutButton').show()
-  // })
-  $('#signOutButton').on('click', function () {
-    $('#sign-in-section').show()
-    $('.spot').hide()
-    $('#signOutButton').hide()
-  })
-  $('#signUpButton').on('click', function () {
-    $('#sign-in-section').show()
-  })
+  $('#signOutButton').on('click', authEvents.onSignOut)
+
   $('#altSignIn').on('click', function () {
     $('#sign-in-section').show()
     $('#sign-up-section').hide()
