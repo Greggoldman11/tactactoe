@@ -56,6 +56,7 @@ const startGameFailure = function () {
 
 const gameMoveSuccess = function (res) {
   store.game = res.game
+  $('#message').html('Play!')
   // create a variable that iterates through store.game.cells
   // the function checks if every cell is occupied by an empty string
   // if the cells include an empty string checkTie is true which isn't a Tie

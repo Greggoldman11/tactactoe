@@ -22,16 +22,16 @@ const onGameMove = function (event) {
   // if my currentPlayer variable is equal to X change it O
   // if it is equal to O change it to X
   // checks for an empty string
-  if ($(event.target).text() === ' ') {
+  if ($(event.target).text() === 'Start New Game') {
+    ui.startGameSuccess()
+  } else if ($(event.target).text() === ' ') {
     $(event.target).text(currentPlayer)
-    $('#message').html('Play!')
     api.updateGame(data, game, currentPlayer)
       .then(ui.gameMoveSuccess)
       .catch(ui.gameMoveFailure)
     currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
     // is it the start game button?
-  } else if ($(event.target).text() === 'Start New Game') {
-    ui.startGameSuccess()
+
     // if not it's taken by an X or an O
   } else if ($(event.target).text() !== ' ') {
     $('#message').text('This spot is taken')
