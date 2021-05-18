@@ -25,7 +25,7 @@ $(() => {
     $('#signOutButton').hide()
   })
   $('#signOutButton').on('click', authEvents.onSignOut)
-
+  //event handler for the already have an account button
   $('#altSignIn').on('click', function () {
     $('#sign-in-section').show()
     $('#sign-up-section').hide()
@@ -33,6 +33,7 @@ $(() => {
     $('#message').text('')
     $('form').trigger('reset')
   })
+  // event handler for the create new account button
   $('#createNewAccount').on('click', function () {
     $('#sign-in-section').hide()
     $('#sign-up-section').show()
