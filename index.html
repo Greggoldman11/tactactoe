@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>TicTacToe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <!-- Add the name of the game -->
+      <h1>Tic Tac Toe</h1>
+      <!-- create a sign up section -->
+    <section id="sign-up-section">
+      <!-- give the section a heading -->
+      <h2>Sign Up</h2>
+      <!-- make a form for the sign up section -->
+      <form id="signUp">
+        <input name="credentials[email]" type="text" placeholder="Email">
+        <input name="credentials[password]" type="password" placeholder="Password">
+        <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+        <button type="submit" id='signUpButton'>Sign Up</button>
+      </form>
+      <button type="submit" id="altSignIn">already have an account?</button>
+    </section>
+    <!-- make a sign in section -->
+    <section id="sign-in-section">
+      <!-- give the section a heading -->
+      <h2>Sign In</h2>
+      <!-- make a form for the section -->
+      <form id="signIn">
+        <input name="credentials[email]" type="text" placeholder="Email">
+        <input name="credentials[password]" type="password" placeholder="Password">
+        <button type="submit" id='signInButton'>Sign In</button>
+      </form>
+      <!-- create a new account button that shows in sign in section-->
+      <button type='submit' id='createNewAccount'>Create a New Account</button>
+    </section>
+    <!-- make a sign out section -->
+    <section id="sign-out-section">
+      <button type="submit" id="signOutButton">Sign Out</button>
+    </section>
+    <!-- make a spot for messaging -->
+    <p id='message'></p>
+    <!-- make a game board -->
+     <div class="container" id="gameBoard">
+      <h1 id="topRow">Game Board</h1>
+      <div class="row">
+        <div class="col-4 spot" data-cell-index='0'> </div>
+        <div class="col-4 spot" data-cell-index='1'> </div>
+        <div class="col-4 spot" data-cell-index='2'> </div>
+        <div class="col-4 spot" data-cell-index='3'> </div>
+        <div class="col-4 spot" data-cell-index='4'> </div>
+        <div class="col-4 spot" data-cell-index='5'> </div>
+        <div class="col-4 spot" data-cell-index='6'> </div>
+        <div class="col-4 spot" data-cell-index='7'> </div>
+        <div class="col-4 spot" data-cell-index='8'> </div>
+      </div>
+      <div class="row">
+        <button class="col-12" id="startGame">Start New Game</button>
+      </div>
+    </div>
+    </body>
+</html>
