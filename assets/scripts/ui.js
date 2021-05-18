@@ -23,7 +23,6 @@ const signInSuccess = function (res) {
 const signInFailure = function () {
   $('#message').html('User is unauthorized')
   // allow the user to create an account on signInFailure
-  $('#sign-up-section').show()
 }
 const signOutSuccess = function () {
   $('#message').html('You have signed out')
