@@ -30,6 +30,7 @@ const signOutSuccess = function () {
   $('#signOutButton').hide()
   $('#sign-in-section').show()
   $('#gameBoard').hide()
+  $('.spot').text(' ')
   $('#signOutButton').hide()
   $('body').css('margin-top', '10%')
 }
