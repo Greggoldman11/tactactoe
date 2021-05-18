@@ -18,21 +18,22 @@ const onGameMove = function (event) {
   // store the response from the event.target for my API call
   const data = $(event.target).data(store.index)
   const game = $(event.target).data(store.user_id)
-  // check if the space is occupied or empty
+  console.log(currentPlayer, 'clicked cell', data.cellIndex)
+  // if my currentPlayer variable is equal to X change it O
+  // if it is equal to O change it to X
+  // checks for an empty string
   if ($(event.target).text() === ' ') {
     $(event.target).text(currentPlayer)
     $('#message').html('Play!')
     api.updateGame(data, game, currentPlayer)
       .then(ui.gameMoveSuccess)
       .catch(ui.gameMoveFailure)
-    // if my currentPlayer variable is equal to X change it O
-    // if it is equal to O change it to X
     currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
-  // If event.target is the start game button it does not have ' ' as text
+    // is it the start game button?
   } else if ($(event.target).text() === 'Start New Game') {
-    $('#message').html('Play!')
-  // everything else possible is an X or an O
-  } else {
+    ui.startGameSuccess()
+    // if not it's taken by an X or an O
+  } else if ($(event.target).text() !== ' ') {
     $('#message').text('This spot is taken')
   }
 }

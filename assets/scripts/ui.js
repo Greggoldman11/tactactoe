@@ -39,7 +39,7 @@ const signOutFailure = function () {
 const startGameSuccess = function (res) {
   store.game = res.game
   // show the board and set the text back to ' '
-  $('#message').html('Play!')
+  $('#message').html('You have started a new game!')
   $('#gameBoard').show()
   $('.spot').show()
   $('.spot').text(' ')
