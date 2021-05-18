@@ -2,7 +2,12 @@ const store = require('./store.js')
 
 const signUpSuccess = function (res) {
   $('form').trigger('reset')
-  $('#message').html('WOO')
+  $('#message').html('You have successfully signed up')
+  $('#sign-in-section').show()
+  $('#sign-up-section').hide()
+}
+const signUpFailure = function () {
+  $('#message').html('Sign up was not completed successfully')
 }
 const signInSuccess = function (res) {
   $('form').trigger('reset')
@@ -10,13 +15,20 @@ const signInSuccess = function (res) {
   store.user = res.user
   console.log(store.user)
   // console.log('this is the user in signInSuccess', store.user.token)
-  $('#message').html('BOOM')
+  $('#message').html('You\'re In! Click Start New Game to begin playing')
+  $('#gameBoard').show()
+  $('#signOutButton').show()
+  $('#sign-in-section').hide()
 }
 const signInFailure = function () {
   $('#message').html('User is unauthorized')
 }
-const signOutSuccess = function (res) {
+const signOutSuccess = function () {
   $('#message').html('You have signed out')
+  $('#signOutButton').hide()
+  $('#sign-in-section').show()
+  $('#gameBoard').hide()
+  $('#signOutButton').hide()
 }
 const signOutFailure = function () {
   $('#message').html('Sign out failed')
@@ -24,8 +36,9 @@ const signOutFailure = function () {
 const startGameSuccess = function (res) {
   store.game = res.game
   console.log(store.game)
-  $('#message').html('Player 1\'s move')
+  $('#message').html('Play!')
   $('#gameBoard').show()
+  $('.spot').show()
   $('.spot').text(' ')
 }
 const startGameFailure = function () {
@@ -34,7 +47,13 @@ const startGameFailure = function () {
 
 const gameMoveSuccess = function (res) {
   store.game = res.game
-  console.log(store.game, ' is in my gameMoveSuccess')
+  // create a variable that iterates through store.game.cells
+  // the function checks if every cell is occupied
+  const checkTie = store.game.cells.includes('')
+
+  // if every cell is either an X or an O, but there is no Winner
+  // message for a tie game
+  // { console.log(store.game, ' is in my gameMoveSuccess')}
   $('#message').html('Play!')
   // checking all of the winning conditions
   if (
@@ -42,97 +61,100 @@ const gameMoveSuccess = function (res) {
     store.game.cells[1] === 'X' &&
     store.game.cells[2] === 'X') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[0] === 'X' &&
     store.game.cells[3] === 'X' &&
     store.game.cells[6] === 'X') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[1] === 'X' &&
     store.game.cells[4] === 'X' &&
     store.game.cells[7] === 'X') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[2] === 'X' &&
     store.game.cells[5] === 'X' &&
     store.game.cells[8] === 'X') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[3] === 'X' &&
     store.game.cells[4] === 'X' &&
     store.game.cells[5] === 'X') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[6] === 'X' &&
     store.game.cells[7] === 'X' &&
     store.game.cells[8] === 'X') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[0] === 'X' &&
     store.game.cells[4] === 'X' &&
     store.game.cells[8] === 'X') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[2] === 'X' &&
     store.game.cells[4] === 'X' &&
     store.game.cells[6] === 'X') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[0] === 'O' &&
     store.game.cells[1] === 'O' &&
     store.game.cells[2] === 'O') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[0] === 'O' &&
     store.game.cells[3] === 'O' &&
     store.game.cells[6] === 'O') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[1] === 'O' &&
     store.game.cells[4] === 'O' &&
     store.game.cells[7] === 'O') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[2] === 'O' &&
     store.game.cells[5] === 'O' &&
     store.game.cells[8] === 'O') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[3] === 'O' &&
     store.game.cells[4] === 'O' &&
     store.game.cells[5] === 'O') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[6] === 'O' &&
     store.game.cells[7] === 'O' &&
     store.game.cells[8] === 'O') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[0] === 'O' &&
     store.game.cells[4] === 'O' &&
     store.game.cells[8] === 'O') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
   } else if (
     store.game.cells[2] === 'O' &&
     store.game.cells[4] === 'O' &&
     store.game.cells[6] === 'O') {
     $('#message').html('Winner')
-    $('#gameBoard').hide()
+    $('.spot').hide()
+  } else if (checkTie === false) {
+    $('#message').html('Tie Game! Play again')
+    $('.spot').hide()
   }
 }
 const gameMoveFailure = function () {
@@ -140,6 +162,7 @@ const gameMoveFailure = function () {
 }
 module.exports = {
   signUpSuccess,
+  signUpFailure,
   signInSuccess,
   signInFailure,
   signOutSuccess,

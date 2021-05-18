@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>TicTacToe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -13,39 +13,41 @@
     </head>
     <body>
       <h1>Tic Tac Toe</h1>
+
     <section id="sign-up-section">
       <h2>Sign Up</h2>
       <form id="signUp">
-        <input name="credentials[email]" type="text">
+        <input name="credentials[email]" type="text" placeholder="name1">
         <input name="credentials[password]" type="password">
         <input name="credentials[password_confirmation]" type="password">
-        <button type="submit">Sign Up</button>
+        <button type="submit" id='signUpButton' class="btn btn-dark">Sign Up</button>
       </form>
+      <button type="submit" id="altSignIn">already have an account?</button>
     </section>
     <section id="sign-in-section">
       <h2>Sign In</h2>
       <form id="signIn">
         <input name="credentials[email]" type="text">
         <input name="credentials[password]" type="password">
-        <button type="submit">Sign In</button>
+        <button type="submit" id='signInButton'>Sign In</button>
       </form>
     </section>
     <section id="sign-out-section">
-      <button type="submit" id="signOut">Sign Out</button>
+      <button type="submit" id="signOutButton">Sign Out</button>
     </section>
     <p id='message'></p>
-    <div class="container">
+     <div class="container" id="gameBoard">
       <h1>Game Board</h1>
-      <div class="row" id="gameBoard">
-        <button class="col-4 spot" data-cell-index='0'> </button>
-        <button class="col-4 spot" data-cell-index='1'> </button>
-        <button class="col-4 spot" data-cell-index='2'> </button>
-        <button class="col-4 spot" data-cell-index='3'> </button>
-        <button class="col-4 spot" data-cell-index='4'> </button>
-        <button class="col-4 spot" data-cell-index='5'> </button>
-        <button class="col-4 spot" data-cell-index='6'> </button>
-        <button class="col-4 spot" data-cell-index='7'> </button>
-        <button class="col-4 spot" data-cell-index='8'> </button>
+      <div class="row">
+        <div class="col-4 spot" data-cell-index='0'> </div>
+        <div class="col-4 spot" data-cell-index='1'> </div>
+        <div class="col-4 spot" data-cell-index='2'> </div>
+        <div class="col-4 spot" data-cell-index='3'> </div>
+        <div class="col-4 spot" data-cell-index='4'> </div>
+        <div class="col-4 spot" data-cell-index='5'> </div>
+        <div class="col-4 spot" data-cell-index='6'> </div>
+        <div class="col-4 spot" data-cell-index='7'> </div>
+        <div class="col-4 spot" data-cell-index='8'> </div>
       </div>
       <div class="row">
         <button class="col-12" id="startGame">Start New Game</button>
@@ -53,9 +55,10 @@
     </div>
     </body>
 </html>
-<style>
+<!-- <style>
   .spot {
     height: 50px;
     width:  50px;
   }
-</style>
+
+</style> -->
