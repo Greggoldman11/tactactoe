@@ -15,6 +15,7 @@ As a user...
 - ... I want to be able to go back to the sign up page
 - ... I want to be able to skip the sign up page
 - ... I want to start game
+- ... I want to play TicTacToe
 - ... I want to start sign out
 ### Wireframe
 ![wireframe(signup)](https://media.git.generalassemb.ly/user/35839/files/874f7700-b7f3-11eb-86cf-2a5f5266784d)
